@@ -1,19 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+
 from django.utils import timezone
-from blog.models import Post, Comment
-from blog.forms import PostForm, CommentForm
+from blog.models import Post
+from blog.forms import PostForm
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (
-    TemplateView, ListView, DetailView, 
+    ListView, DetailView, 
     CreateView, UpdateView, DeleteView
     )
-
-
-# Create your views here.
-
-class AboutView(TemplateView):
-    template_name = 'about.html'
 
 
 class PostListView(ListView):
@@ -56,3 +52,11 @@ class DraftListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         # drafts should not have publication_date
         return Post.objects.filter(publication_date__isnull=True).order_by('creation_date')
+
+
+@login_required
+def post_publish(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.publish
+    return redirect('post_detail', pk=pk)
+
