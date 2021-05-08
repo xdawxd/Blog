@@ -10,13 +10,13 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     text = models.TextField()
     creation_date = models.DateTimeField(default=timezone.now)
-    publication_date = models.DateTimeField(blank=True, null=True)
+    published_date = models.DateTimeField(blank=True, null=True)
 
     def publish(self):
         self.published_date = timezone.now()
         self.save()
 
-    def approve_comments(self):
+    def approved_comments(self):
         return self.comments.filter(approved_comment=True)
 
     # once post is created the user will be redirected to 'post_detail' view

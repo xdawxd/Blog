@@ -1,3 +1,9 @@
+.techfont{
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.2em;
+    margin-bottom: 1.5em;
+}
+
 .jumbotron {
     padding: 2rem 1rem;
     margin-bottom: 2rem;
@@ -5,8 +11,14 @@
     border-radius: .3rem;
 }
 
-.techfont{
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 1.2em;
-    margin-bottom: 1.5em;
+.center-posts{
+    margin: auto;
+}
+
+.post-info{
+    background-color: green;
+}
+
+.post-text{
+    background-color: red;
 }

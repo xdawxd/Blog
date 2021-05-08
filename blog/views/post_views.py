@@ -17,7 +17,7 @@ class PostListView(ListView):
     
     def get_queryset(self):
         # grab all objects from the post model and filter them -> Less Than or Equal to current time and order them descending by date
-        return Post.objects.filter(publication_date__lte=timezone.now()).order_by('-publication_date')
+        return Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 
 
 class PostDetailView(DetailView):
@@ -51,7 +51,7 @@ class DraftListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         # drafts should not have publication_date
-        return Post.objects.filter(publication_date__isnull=True).order_by('creation_date')
+        return Post.objects.filter(published_date__isnull=True).order_by('creation_date')
 
 
 @login_required
