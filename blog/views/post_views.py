@@ -41,7 +41,7 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
 class PostDeleteView(LoginRequiredMixin, DeleteView):
     model = Post
     # using reverse_lazy function to make sure the user submits the deletion before redirecting
-    success_url = reverse_lazy('post_list')
+    success_url = reverse_lazy('blog:post_list')
 
 
 class DraftListView(LoginRequiredMixin, ListView):
@@ -57,6 +57,6 @@ class DraftListView(LoginRequiredMixin, ListView):
 @login_required
 def post_publish(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    post.publish
-    return redirect('post_detail', pk=pk)
+    post.publish()
+    return redirect('blog:post_detail', pk=pk)
 

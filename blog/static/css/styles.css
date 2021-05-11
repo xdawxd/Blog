@@ -5,8 +5,7 @@
 }
 
 .jumbotron {
-    padding: 2rem 1rem;
-    margin-bottom: 2rem;
+    padding: 0.5rem 1rem;
     background-color: #e9ecef;
     border-radius: .3rem;
 }
@@ -15,10 +14,12 @@
     margin: auto;
 }
 
-.post-info{
-    background-color: green;
+.post-date{
+    text-align: center;
 }
 
-.post-text{
-    background-color: red;
+.post-title{
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 3em;
+    text-align: center;
 }
