@@ -4,7 +4,6 @@ from django.urls import reverse
 
 # Create your models here. 
 
-
 class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
@@ -19,7 +18,6 @@ class Post(models.Model):
     def approved_comments(self):
         return self.comments.filter(approved_comment=True)
 
-    # once post is created the user will be redirected to 'post_detail' view
     def get_absolute_url(self):
         return reverse('blog:post_detail', kwargs={'pk': self.pk})
 
@@ -38,7 +36,6 @@ class Comment(models.Model):
         self.approved_comment = True
         self.save()
 
-    # once post is created the user will be redirected to 'posts' which will be a name of 'post_list' view
     def get_absolute_url(self):
         return reverse('posts', kwargs={'pk': self.pk})
 
