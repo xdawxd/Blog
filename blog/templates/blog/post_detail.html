@@ -19,7 +19,9 @@
     {% endif %}
 
     <hr>
+    {% if post.published_date %}
     <a class="btn btn-dark btn-comment" href="{% url 'blog:comment_add' pk=post.pk %}">Add Comment</a>
+    
 
     <div class="container">
         {% for comment in post.comments.all %}
@@ -49,5 +51,6 @@
 
         {% endfor %}
     </div>
+    {% endif %}
 
 {% endblock content %}
