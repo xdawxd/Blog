@@ -21,7 +21,6 @@
     <hr>
     {% if post.published_date %}
     <a class="btn btn-dark btn-comment" href="{% url 'blog:comment_add' pk=post.pk %}">Add Comment</a>
-    
 
     <div class="container">
         {% for comment in post.comments.all %}
@@ -35,12 +34,12 @@
                     <h5 class="h5 g-color-gray-dark-v1 mb-0">{{ comment.author }}</h5>
                     <span class="g-color-gray-dark-v4 g-font-size-12">{{ comment.creation_date|timesince }} ago.</span>
                     <p>{{ comment.text|safe|linebreaks }}</p>
-                {% if not comment.approved_comment %}
-                
+
+                    {% if not comment.approved_comment %}
                     <a class="btn btn-primary"href="{% url 'blog:comment_remove' pk=comment.pk %}">Remove</a>
                     <a class="btn btn-dark"href="{% url 'blog:comment_approve' pk=comment.pk %}">Approve</a>
                 
-                {% endif %}
+                    {% endif %}
                 </div>
 
             {% endif %}

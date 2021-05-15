@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    <div class="jumbotron">
+        <h1>Register:</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {{ profile_form.as_p }}
+            <input clas="btn btn-dark" type="submit" value="Register">
+        </form>
+    </div>
+{% endblock content %}
