@@ -1,6 +1,6 @@
 # Django Blog Project
 
-## Technologies
+### Technologies
 
 ### Backend
 
