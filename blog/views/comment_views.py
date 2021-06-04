@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import View
 
+
 # rewrite to CreateView
 class CommentView(View):
     form_class = CommentForm
